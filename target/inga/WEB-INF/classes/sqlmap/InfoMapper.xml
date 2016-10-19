@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.inga.dao.InfoDao">
+
+  <resultMap id="info" type="com.inga.bean.Info">
+      <id column="id" property="id"/>
+      <result column="sdate" property="sdate"/>
+      <result column="name" property="name"/>
+      <result column="stock" property="stock"/>
+      <result column="ship" property="ship"/>
+      <result column="note" property="note"/>
+  </resultMap>
+
+    <sql id="insertSQL">
+        sdate , name , stock , ship , note
+    </sql>
+
+  <select id="queryInfoPage"  resultMap="info" >
+      select
+        id,
+        name ,
+        sdate,
+        stock,
+        ship,
+        note
+      from info
+      <where>
+          1=1
+          <if test="id != null and id !=0 ">
+              and name = #{id , jdbcType=INTEGER}
+           </if>
+          <if test="name != null and name !=''">
+              and name = #{name , jdbcType=VARCHAR}
+          </if>
+          <if test="ship != null and ship !=''">
+              and ship = #{ship , jdbcType=VARCHAR}
+          </if>
+      </where>
+  </select>
+
+
+    <delete id="delInfo">
+        DELETE FROM info WHERE id = #{id}
+    </delete>
+    
+    <update id="updateInfo">
+        UPDATE info
+        SET
+          sdate = #{sdate},
+          NAME  = #{name},
+          stock = #{stock},
+          ship = #{ship},
+          note = #{note}
+        WHERE ID = #{id}
+    </update>
+
+    <insert id="addInfo">
+        INSERT INTO info(
+        <include refid="insertSQL"/>
+        )
+        VALUES (
+          #{sdate},
+          #{name},
+          #{stock},
+          #{ship},
+          #{note}
+        )
+    </insert>
+
+
+</mapper>
