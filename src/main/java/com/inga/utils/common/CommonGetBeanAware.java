@@ -22,7 +22,7 @@ public class CommonGetBeanAware implements ApplicationContextAware {
     }
 
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-
+        CommonGetBeanAware.applicationContext = applicationContext;
     }
 
     public static Object getBean(String beanName){

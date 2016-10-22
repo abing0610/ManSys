@@ -65,4 +65,16 @@ public class Info extends Form {
     public void setNote(String note) {
         this.note = note;
     }
+
+    @Override
+    public String toString() {
+        return "Info{" +
+                "id=" + id +
+                ", sdate='" + sdate + '\'' +
+                ", name='" + name + '\'' +
+                ", stock=" + stock +
+                ", ship='" + ship + '\'' +
+                ", note='" + note + '\'' +
+                '}';
+    }
 }

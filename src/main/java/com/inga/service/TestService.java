@@ -15,4 +15,6 @@ public interface TestService {
     void updateInfo(Info info);
 
     void addInfo(Info info);
+
+    Info queryInfoById(int id);
 }

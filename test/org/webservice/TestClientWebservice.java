@@ -26,7 +26,7 @@ public class TestClientWebservice {
         Client client = factory.createClient("http://localhost:8080/ws/soap/hello?wsdl");
 
         try {
-            Object[] result = client.invoke("say" , "inga");
+            Object[] result = client.invoke("say" , "1");
             System.out.println(result[0]);
         } catch (Exception e) {
             e.printStackTrace();

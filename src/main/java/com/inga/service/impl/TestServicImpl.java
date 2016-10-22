@@ -40,4 +40,10 @@ public class TestServicImpl implements TestService {
     public void addInfo(Info info) {
         infoDao.addInfo(info);
     }
+
+    @Override
+    public Info queryInfoById(int id) {
+
+        return infoDao.queryInfoById(id);
+    }
 }

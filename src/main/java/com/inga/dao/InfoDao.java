@@ -35,4 +35,7 @@ public interface InfoDao {
      * @param id
      */
     void delInfo(@Param("id") int id);
+
+
+    Info queryInfoById(@Param("id") int id );
 }
